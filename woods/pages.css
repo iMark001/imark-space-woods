@@ -503,3 +503,17 @@ table.pt thead th:first-child, table.pt thead th:nth-child(2) {
   .hd { position: static; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ── CERTIFICATIONS (Construction) ── */
+.cert-strip { background: var(--white); padding: 40px 52px; border-bottom: 1px solid var(--border); }
+.cert-inner { max-width: 1060px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.cert-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.cert-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.cbadge { padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--body2); }
+.cbadge.hi { border-color: var(--amber-border); background: var(--amber-dim); color: var(--amber); }
+
+@media (max-width: 768px) {
+  .cert-strip { padding: 32px 20px; }
+  .cert-badges { gap: 8px; }
+  .cbadge { font-size: 11px; padding: 6px 12px; }
+}
