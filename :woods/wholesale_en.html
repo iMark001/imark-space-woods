@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChFK — Commercial Proposal for Wholesale Buyers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:        #141210;
+      --dark2:       #1C1A16;
+      --dark3:       #242018;
+      --amber:       #C8913A;
+      --amber-dim:   rgba(200,145,58,0.12);
+      --amber-border:rgba(200,145,58,0.30);
+      --light:       #F2EDE4;
+      --muted:       #96907E;
+      --body:        #1E1C18;
+      --body2:       #58544A;
+      --white:       #FFFFFF;
+      --offwhite:    #F8F5EF;
+      --border:      rgba(0,0,0,0.08);
+      --border-dark: rgba(255,255,255,0.07);
+      --display:     'Playfair Display', Georgia, serif;
+      --sans:        'IBM Plex Sans', system-ui, sans-serif;
+      --radius:      4px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    .hd {
+      background: var(--dark);
+      padding: 14px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .hd-logo { height: 34px; object-fit: contain; }
+    .hd-right { display: flex; align-items: center; gap: 20px; }
+    .hd-date { font-size: 11px; color: var(--muted); font-weight: 300; }
+    .hd-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--amber);
+      border: 1px solid var(--amber-border);
+      padding: 5px 13px; border-radius: var(--radius);
+    }
+
+    /* ── HERO ───────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 52px 68px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; left: -100px; top: 50%;
+      transform: translateY(-50%);
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,145,58,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-wrap { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 20px;
+    }
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: 54px; font-weight: 500; color: var(--light);
+      line-height: 1.14; margin-bottom: 22px; max-width: 700px;
+    }
+    .hero-lead {
+      font-size: 15px; font-weight: 300; color: var(--muted);
+      max-width: 560px; line-height: 1.75; margin-bottom: 40px;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      font-size: 11px; font-weight: 400;
+      color: rgba(150,144,126,0.85);
+      border: 1px solid rgba(150,144,126,0.22);
+      padding: 5px 13px; border-radius: 2px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* ── STRIP ──────────────────────────────────────── */
+    .strip { background: var(--amber); }
+    .strip-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .strip-item { padding: 20px 28px; border-right: 1px solid rgba(0,0,0,0.10); }
+    .strip-item:last-child { border-right: none; }
+    .strip-val {
+      font-family: var(--display);
+      font-size: 24px; font-weight: 600;
+      color: var(--dark); line-height: 1; margin-bottom: 4px;
+    }
+    .strip-lbl {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: rgba(20,18,16,0.55);
+    }
+
+    /* ── SHARED ─────────────────────────────────────── */
+    .sec { padding: 76px 52px; }
+    .sec--alt { background: var(--offwhite); }
+    .sec--dark { background: var(--dark); }
+    .sec-wrap { max-width: 1060px; margin: 0 auto; }
+    .sec-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 12px;
+    }
+    .sec-h2 {
+      font-family: var(--display);
+      font-size: 36px; font-weight: 500;
+      color: var(--body); line-height: 1.22; margin-bottom: 14px;
+    }
+    .sec--dark .sec-h2 { color: var(--light); }
+    .sec-intro {
+      font-size: 15px; color: var(--body2);
+      max-width: 600px; line-height: 1.75;
+      margin-bottom: 48px; font-weight: 300;
+    }
+    .sec--dark .sec-intro { color: var(--muted); }
+
+    /* ── ABOUT CARDS ────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .a-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 20px;
+    }
+    .a-icon {
+      width: 34px; height: 34px; background: var(--amber-dim);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amber); font-size: 16px; margin-bottom: 14px;
+    }
+    .a-title { font-size: 13px; font-weight: 600; color: var(--body); margin-bottom: 7px; line-height: 1.35; }
+    .a-text { font-size: 12px; color: var(--body2); line-height: 1.62; }
+
+    /* ── VOLUME TIERS ───────────────────────────────── */
+    .tiers {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .tier {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .tier-head {
+      padding: 16px 20px;
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .tier-head.t1 { background: var(--dark3); }
+    .tier-head.t2 { background: var(--dark2); }
+    .tier-head.t3 { background: var(--dark); }
+    .tier-name {
+      font-family: var(--display);
+      font-size: 17px; font-weight: 500; color: var(--light);
+    }
+    .tier-tag {
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--amber); margin-left: auto;
+    }
+    .tier-body { padding: 16px 20px; background: var(--white); }
+    .tier-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .tier-row:last-child { border-bottom: none; }
+    .tier-key { font-size: 11px; color: var(--body2); }
+    .tier-val { font-size: 12px; font-weight: 600; color: var(--body); }
+    .tier-val.amber { color: var(--amber); }
+
+    /* ── RANGE CARDS ────────────────────────────────── */
+    .range-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .r-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 20px;
+      display: flex; gap: 16px;
+    }
+    .r-thick {
+      font-family: var(--display);
+      font-size: 26px; font-weight: 400;
+      color: var(--amber); opacity: 0.65;
+      line-height: 1; flex-shrink: 0; width: 60px;
+    }
+    .r-title { font-size: 13px; font-weight: 600; color: var(--body); margin-bottom: 5px; }
+    .r-text { font-size: 12px; color: var(--body2); line-height: 1.6; }
+    .r-grades {
+      display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px;
+    }
+    .r-grade {
+      font-size: 10px; font-weight: 500;
+      color: var(--amber); background: var(--amber-dim);
+      border: 1px solid var(--amber-border);
+      padding: 2px 7px; border-radius: 2px;
+    }
+
+    /* ── PRICE TABLE ────────────────────────────────── */
+    .price-note {
+      display: inline-flex; align-items: flex-start; gap: 10px;
+      font-size: 11.5px; color: var(--muted);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      padding: 10px 16px; margin-bottom: 22px; line-height: 1.6;
+    }
+    .price-note strong { color: var(--amber); font-weight: 500; }
+    .tbl-outer {
+      overflow-x: auto; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    table.pt {
+      width: 100%; border-collapse: collapse;
+      font-size: 12px; min-width: 960px;
+    }
+    table.pt thead tr { background: #0C0A08; }
+    table.pt thead th {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.11em; text-transform: uppercase;
+      color: var(--amber); padding: 11px 13px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      white-space: nowrap;
+    }
+    table.pt thead th:first-child,
+    table.pt thead th:nth-child(2) { text-align: left; }
+    table.pt tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.12s;
+    }
+    table.pt tbody tr:hover { background: rgba(255,255,255,0.025); }
+    table.pt tbody tr:last-child { border-bottom: none; }
+    table.pt tbody tr.row-key { background: rgba(200,145,58,0.04); }
+    table.pt tbody tr.row-key:hover { background: rgba(200,145,58,0.07); }
+    table.pt td { padding: 9px 13px; vertical-align: middle; }
+    .td-g { font-weight: 600; color: var(--light); font-size: 13px; white-space: nowrap; }
+    .td-g .best {
+      display: inline-block; font-size: 8px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--amber); border: 1px solid var(--amber-border);
+      padding: 1px 5px; border-radius: 2px;
+      margin-left: 6px; vertical-align: middle;
+    }
+    .td-use { font-size: 11px; color: rgba(150,144,126,0.85); line-height: 1.45; min-width: 148px; }
+    .td-p { text-align: center; white-space: nowrap; }
+    .p-r { display: block; font-size: 10.5px; color: rgba(242,237,228,0.38); font-weight: 300; }
+    .p-u { display: block; font-size: 13.5px; font-weight: 600; color: var(--amber); margin-top: 1px; }
+    .td-dash { text-align: center; color: rgba(255,255,255,0.10); }
+    .pt-disclaimer { margin-top: 16px; font-size: 11px; color: rgba(150,144,126,0.65); line-height: 1.7; }
+
+    /* ── TERMS ──────────────────────────────────────── */
+    .terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .t-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 20px;
+    }
+    .t-lbl {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .t-val {
+      font-family: var(--display);
+      font-size: 17px; font-weight: 500;
+      color: var(--body); margin-bottom: 6px; line-height: 1.3;
+    }
+    .t-note { font-size: 11.5px; color: var(--body2); line-height: 1.58; }
+    .pending {
+      display: inline-block; font-family: var(--sans);
+      font-size: 11px; font-weight: 500;
+      color: var(--amber); background: var(--amber-dim);
+      border: 1px dashed var(--amber-border);
+      padding: 3px 9px; border-radius: 2px;
+    }
+
+    /* ── LOGISTICS BLOCK ────────────────────────────── */
+    .logistics {
+      background: var(--dark2);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    }
+    .log-title {
+      font-family: var(--display);
+      font-size: 17px; font-weight: 500;
+      color: var(--light); margin-bottom: 14px;
+    }
+    .log-row {
+      display: flex; gap: 10px;
+      padding: 7px 0; border-bottom: 1px solid var(--border-dark);
+    }
+    .log-row:last-child { border-bottom: none; }
+    .log-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--amber); flex-shrink: 0; margin-top: 7px;
+    }
+    .log-text { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    /* ── CTA ────────────────────────────────────────── */
+    .cta-sec { background: var(--dark2); padding: 80px 52px; text-align: center; }
+    .cta-h2 {
+      font-family: var(--display);
+      font-size: 38px; font-weight: 500;
+      color: var(--light); margin-bottom: 12px; line-height: 1.2;
+    }
+    .cta-sub {
+      font-size: 14px; font-weight: 300; color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block; background: var(--amber);
+      color: var(--dark); font-family: var(--sans);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      text-decoration: none; padding: 15px 36px;
+      border-radius: var(--radius); transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    .footer {
+      background: var(--dark); border-top: 1px solid var(--border-dark);
+      padding: 22px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-l { font-size: 11px; color: rgba(150,144,126,0.6); }
+    .footer-certs { display: flex; gap: 10px; }
+    .cert {
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.08em;
+      color: rgba(150,144,126,0.50);
+      border: 1px solid rgba(150,144,126,0.18);
+      padding: 4px 10px; border-radius: 2px;
+    }
+    .divider { height: 1px; background: var(--border); }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: repeat(2, 1fr); }
+      .tiers { grid-template-columns: 1fr; }
+      .range-grid { grid-template-columns: 1fr; }
+      .terms-grid { grid-template-columns: repeat(2, 1fr); }
+      .strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .hero-h1 { font-size: 38px; }
+      .logistics { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .hd { position: static; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="hd">
+  <img class="hd-logo"
+       src="https://static.tildacdn.com/tild6437-3734-4832-b035-353731666238/Logo_white.png"
+       alt="Chebarkulsky Plywood Mill">
+  <div class="hd-right">
+    <span class="hd-date">Current as of 18.03.2026</span>
+    <span class="hd-badge">Wholesale Buyers</span>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="eyebrow">Chebarkulsky Plywood Mill · Wholesale Factory Supply</div>
+    <h1 class="hero-h1">Birch Plywood Wholesale.<br>Factory Price, Your Volume.</h1>
+    <p class="hero-lead">
+      Full FK plywood range — 9 grades, thickness 3–30 mm.
+      Direct manufacturer pricing with no trade markups. Shipment to your volume and schedule.
+    </p>
+    <div class="hero-pills">
+      <span class="pill">9 Grades Available</span>
+      <span class="pill">Thickness 3–30 mm</span>
+      <span class="pill">Batch Shipments</span>
+      <span class="pill">FCA Factory Price</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS STRIP ═══════════ -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-val">9 сортов</div>
+      <div class="strip-lbl">Full Range</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">3–30 мм</div>
+      <div class="strip-lbl">Thickness Range</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">EXW</div>
+      <div class="strip-lbl">Delivery Basis</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">ISO 9001</div>
+      <div class="strip-lbl">Сертификация</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">About the Manufacturer</div>
+    <h2 class="sec-h2">Chebarkulsky Plywood Mill</h2>
+    <p class="sec-intro">
+      Производитель берёзовой фанеры с собственным производством полного цикла. Сырьё —
+      отборный берёзовый кряж по ГОСТ. Products сертифицирована по ISO 9001 и ГОСТ 3916.1-2018.
+    </p>
+    <div class="about-grid">
+      <div class="a-card">
+        <div class="a-icon">🏭</div>
+        <div class="a-title">Full-Cycle Production</div>
+        <div class="a-text">From veneer harvesting to finished product — all on one site. No dependency on subcontractors. Stable volume and quality.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-icon">📦</div>
+        <div class="a-title">Wide Range</div>
+        <div class="a-text">9 grades from I/I to SHOP. 9 thickness ranges. Covers furniture, construction and packaging market needs from one source.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-icon">💰</div>
+        <div class="a-title">No-Markup Pricing</div>
+        <div class="a-text">Direct factory supply. You pay the manufacturer's price, not a retail markup. The difference is your margin or budget saving.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-icon">📋</div>
+        <div class="a-title">Full Document Package</div>
+        <div class="a-text">ISO 9001, GOST 3916.1-2018, conformity declarations. Everything needed for customs clearance and B2B sales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ VOLUME TIERS ═══════════ -->
+<section class="sec sec--alt">
+  <div class="sec-wrap">
+    <div class="sec-label">Volume Terms</div>
+    <h2 class="sec-h2">The Larger the Volume — the Better the Terms</h2>
+    <p class="sec-intro">
+      Оптовые условия зависят от объёма закупки. Ниже — базовая логика.
+      Точные параметры согласовываются при оформлении заявки.
+    </p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-head t1">
+          <span class="tier-name">Basic Wholesale</span>
+          <span class="tier-tag">Старт</span>
+        </div>
+        <div class="tier-body">
+          <div class="tier-row">
+            <span class="tier-key">Объём</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Цена</span>
+            <span class="tier-val">Per price list</span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Срок</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Оплата</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-head t2">
+          <span class="tier-name">Mid Wholesale</span>
+          <span class="tier-tag">Рекомендуем</span>
+        </div>
+        <div class="tier-body">
+          <div class="tier-row">
+            <span class="tier-key">Объём</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Цена</span>
+            <span class="tier-val">Discount on request</span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Срок</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Оплата</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-head t3">
+          <span class="tier-name">Large Wholesale</span>
+          <span class="tier-tag">Контракт</span>
+        </div>
+        <div class="tier-body">
+          <div class="tier-row">
+            <span class="tier-key">Объём</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Цена</span>
+            <span class="tier-val">Individual</span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Срок</span>
+            <span class="tier-val amber"><span class="pending">Уточняется</span></span>
+          </div>
+          <div class="tier-row">
+            <span class="tier-key">Оплата</span>
+            <span class="tier-val">Letter of credit / staged</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RANGE GUIDE ═══════════ -->
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">Product Range</div>
+    <h2 class="sec-h2">What and for Which Market</h2>
+    <p class="sec-intro">
+      Один поставщик закрывает несколько рыночных сегментов. Ниже — краткий гид по толщинам и сортам.
+    </p>
+    <div class="range-grid">
+      <div class="r-card">
+        <div class="r-thick">3–6<small style="font-size:14px;">мм</small></div>
+        <div>
+          <div class="r-title">Thin Plywood — Furniture and Packaging</div>
+          <div class="r-text">Furniture backs, drawers, shelves, display structures, packaging. High turnover, stable demand.</div>
+          <div class="r-grades">
+            <span class="r-grade">I/II</span>
+            <span class="r-grade">II/III</span>
+            <span class="r-grade">IV/IV</span>
+            <span class="r-grade">ШОП</span>
+          </div>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="r-thick">9–12<small style="font-size:14px;">мм</small></div>
+        <div>
+          <div class="r-title">Medium — Floors, Cabinet Furniture</div>
+          <div class="r-text">Flooring, wall panels, cabinet furniture, partitions. The most in-demand range in construction and furniture production.</div>
+          <div class="r-grades">
+            <span class="r-grade">II/II</span>
+            <span class="r-grade">II/III</span>
+            <span class="r-grade">III/IV</span>
+            <span class="r-grade">ШОП</span>
+          </div>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="r-thick">14–20<small style="font-size:14px;">мм</small></div>
+        <div>
+          <div class="r-title">Thick — Construction and Formwork</div>
+          <div class="r-text">Formwork для монолитного строительства, черновые полы, несущие панели. Большой объём в строительном секторе.</div>
+          <div class="r-grades">
+            <span class="r-grade">III/III</span>
+            <span class="r-grade">III/IV</span>
+            <span class="r-grade">IV/IV</span>
+          </div>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="r-thick">21–30<small style="font-size:14px;">мм</small></div>
+        <div>
+          <div class="r-title">Extra-Thick — Structural and Special Orders</div>
+          <div class="r-text">Load-bearing structures, heavy formwork, transport pallets, industrial production. Specialist orders with high value.</div>
+          <div class="r-grades">
+            <span class="r-grade">II/III</span>
+            <span class="r-grade">III/IV</span>
+            <span class="r-grade">IV/IV</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICE TABLE ═══════════ -->
+<section class="sec sec--dark">
+  <div class="sec-wrap">
+    <div class="sec-label">Price List</div>
+    <h2 class="sec-h2">Prices per 1 m³ · VAT included</h2>
+    <p class="sec-intro">Фанера ФК Е-0.5 · 1525 × 1525 мм · Current as of 18.03.2026</p>
+
+    <div class="price-note">
+      <span>💱</span>
+      <span>
+        USD prices are indicative: <strong>CBR rate on payment date +2%</strong> &nbsp;·&nbsp;
+        Delivery Basis <strong>EXW завод</strong> (Чебаркуль, Россия)<br>
+        Logistics and customs — buyer's responsibility &nbsp;·&nbsp;
+        <strong>Volume Discounts согласовываются индивидуально</strong>
+      </span>
+    </div>
+
+    <div class="tbl-outer">
+      <table class="pt">
+        <thead>
+          <tr>
+            <th style="text-align:left; min-width:72px;">Grade</th>
+            <th style="text-align:left; min-width:150px;">Applications</th>
+            <th>3 мм</th>
+            <th>4 мм</th>
+            <th>5–6 мм</th>
+            <th>9 мм</th>
+            <th>12 мм</th>
+            <th>14–20 мм</th>
+            <th>21–30 мм</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-g">I / I</td>
+            <td class="td-use">Facades, decorative finishing</td>
+            <td class="td-p"><span class="p-r">130 530 ₽</span><span class="p-u">$1 536</span></td>
+            <td class="td-p"><span class="p-r">75 367 ₽</span><span class="p-u">$887</span></td>
+            <td class="td-p"><span class="p-r">70 604 ₽</span><span class="p-u">$831</span></td>
+            <td class="td-p"><span class="p-r">58 619 ₽</span><span class="p-u">$690</span></td>
+            <td class="td-p"><span class="p-r">52 129 ₽</span><span class="p-u">$613</span></td>
+            <td class="td-p"><span class="p-r">51 500 ₽</span><span class="p-u">$606</span></td>
+            <td class="td-p"><span class="p-r">52 129 ₽</span><span class="p-u">$613</span></td>
+          </tr>
+          <tr>
+            <td class="td-g">I / II</td>
+            <td class="td-use">Furniture, retail equipment</td>
+            <td class="td-p"><span class="p-r">101 013 ₽</span><span class="p-u">$1 188</span></td>
+            <td class="td-p"><span class="p-r">60 713 ₽</span><span class="p-u">$714</span></td>
+            <td class="td-p"><span class="p-r">58 401 ₽</span><span class="p-u">$687</span></td>
+            <td class="td-p"><span class="p-r">46 350 ₽</span><span class="p-u">$545</span></td>
+            <td class="td-p"><span class="p-r">42 230 ₽</span><span class="p-u">$497</span></td>
+            <td class="td-p"><span class="p-r">40 994 ₽</span><span class="p-u">$482</span></td>
+            <td class="td-p"><span class="p-r">42 230 ₽</span><span class="p-u">$497</span></td>
+          </tr>
+          <tr>
+            <td class="td-g">II / II</td>
+            <td class="td-use">Interior, wall panels</td>
+            <td class="td-p"><span class="p-r">77 094 ₽</span><span class="p-u">$907</span></td>
+            <td class="td-p"><span class="p-r">49 198 ₽</span><span class="p-u">$579</span></td>
+            <td class="td-p"><span class="p-r">46 350 ₽</span><span class="p-u">$545</span></td>
+            <td class="td-p"><span class="p-r">44 805 ₽</span><span class="p-u">$527</span></td>
+            <td class="td-p"><span class="p-r">40 685 ₽</span><span class="p-u">$479</span></td>
+            <td class="td-p"><span class="p-r">39 655 ₽</span><span class="p-u">$467</span></td>
+            <td class="td-p"><span class="p-r">39 655 ₽</span><span class="p-u">$467</span></td>
+          </tr>
+          <tr class="row-key">
+            <td class="td-g">II / III <span class="best">Best Seller</span></td>
+            <td class="td-use">Floors, partitions, shelving</td>
+            <td class="td-p"><span class="p-r">72 746 ₽</span><span class="p-u">$856</span></td>
+            <td class="td-p"><span class="p-r">45 697 ₽</span><span class="p-u">$538</span></td>
+            <td class="td-p"><span class="p-r">43 260 ₽</span><span class="p-u">$509</span></td>
+            <td class="td-p"><span class="p-r">40 170 ₽</span><span class="p-u">$473</span></td>
+            <td class="td-p"><span class="p-r">37 080 ₽</span><span class="p-u">$436</span></td>
+            <td class="td-p"><span class="p-r">37 080 ₽</span><span class="p-u">$436</span></td>
+            <td class="td-p"><span class="p-r">37 080 ₽</span><span class="p-u">$436</span></td>
+          </tr>
+          <tr>
+            <td class="td-g">II / IV</td>
+            <td class="td-use">Construction, rough works</td>
+            <td class="td-p"><span class="p-r">67 988 ₽</span><span class="p-u">$800</span></td>
+            <td class="td-p"><span class="p-r">42 708 ₽</span><span class="p-u">$502</span></td>
+            <td class="td-p"><span class="p-r">39 655 ₽</span><span class="p-u">$467</span></td>
+            <td class="td-p"><span class="p-r">37 080 ₽</span><span class="p-u">$436</span></td>
+            <td class="td-p"><span class="p-r">35 020 ₽</span><span class="p-u">$412</span></td>
+            <td class="td-p"><span class="p-r">34 505 ₽</span><span class="p-u">$406</span></td>
+            <td class="td-p"><span class="p-r">34 505 ₽</span><span class="p-u">$406</span></td>
+          </tr>
+          <tr>
+            <td class="td-g">III / III</td>
+            <td class="td-use">Structural, floors</td>
+            <td class="td-p"><span class="p-r">67 988 ₽</span><span class="p-u">$800</span></td>
+            <td class="td-p"><span class="p-r">42 708 ₽</span><span class="p-u">$502</span></td>
+            <td class="td-p"><span class="p-r">38 110 ₽</span><span class="p-u">$448</span></td>
+            <td class="td-p"><span class="p-r">35 535 ₽</span><span class="p-u">$418</span></td>
+            <td class="td-p"><span class="p-r">33 990 ₽</span><span class="p-u">$400</span></td>
+            <td class="td-p"><span class="p-r">33 990 ₽</span><span class="p-u">$400</span></td>
+            <td class="td-p"><span class="p-r">33 990 ₽</span><span class="p-u">$400</span></td>
+          </tr>
+          <tr class="row-key">
+            <td class="td-g">III / IV <span class="best">Wholesale · Construction</span></td>
+            <td class="td-use">Formwork, temporary structures</td>
+            <td class="td-p"><span class="p-r">64 690 ₽</span><span class="p-u">$761</span></td>
+            <td class="td-p"><span class="p-r">40 563 ₽</span><span class="p-u">$477</span></td>
+            <td class="td-p"><span class="p-r">37 595 ₽</span><span class="p-u">$442</span></td>
+            <td class="td-p"><span class="p-r">34 505 ₽</span><span class="p-u">$406</span></td>
+            <td class="td-p"><span class="p-r">33 475 ₽</span><span class="p-u">$394</span></td>
+            <td class="td-p"><span class="p-r">32 960 ₽</span><span class="p-u">$388</span></td>
+            <td class="td-p"><span class="p-r">32 960 ₽</span><span class="p-u">$388</span></td>
+          </tr>
+          <tr class="row-key">
+            <td class="td-g">IV / IV <span class="best">Volume Leader</span></td>
+            <td class="td-use">Pallets, packaging, underlays</td>
+            <td class="td-p"><span class="p-r">44 935 ₽</span><span class="p-u">$529</span></td>
+            <td class="td-p"><span class="p-r">34 164 ₽</span><span class="p-u">$402</span></td>
+            <td class="td-p"><span class="p-r">32 798 ₽</span><span class="p-u">$386</span></td>
+            <td class="td-p"><span class="p-r">30 421 ₽</span><span class="p-u">$358</span></td>
+            <td class="td-p"><span class="p-r">29 705 ₽</span><span class="p-u">$349</span></td>
+            <td class="td-p"><span class="p-r">29 024 ₽</span><span class="p-u">$341</span></td>
+            <td class="td-p"><span class="p-r">29 714 ₽</span><span class="p-u">$350</span></td>
+          </tr>
+          <tr>
+            <td class="td-g">ШОП</td>
+            <td class="td-use">Finishing, furniture</td>
+            <td class="td-dash">—</td>
+            <td class="td-p"><span class="p-r">29 500 ₽</span><span class="p-u">$347</span></td>
+            <td class="td-p"><span class="p-r">25 500 ₽</span><span class="p-u">$300</span></td>
+            <td class="td-p"><span class="p-r">23 000 ₽</span><span class="p-u">$271</span></td>
+            <td class="td-p"><span class="p-r">23 000 ₽</span><span class="p-u">$271</span></td>
+            <td class="td-p"><span class="p-r">21 500 ₽</span><span class="p-u">$253</span></td>
+            <td class="td-p"><span class="p-r">21 500 ₽</span><span class="p-u">$253</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pt-disclaimer">
+      * Prices per 1 m³ VAT included. FCA Chebarkulsky factory, Russia. Transport and customs — buyer's responsibility.<br>
+      * USD prices are indicative. The final USD amount is calculated at the CBR rate on payment date +2%. Base calculation is in roubles.<br>
+      * Volume discounts available from a certain order volume — enquire when placing an order.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ TERMS ═══════════ -->
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">Delivery Terms</div>
+    <h2 class="sec-h2">Wholesale Purchase Parameters</h2>
+    <p class="sec-intro">
+      Базовые условия. Индивидуальные параметры — объём, периодичность, логистика —
+      согласовываются при оформлении заявки.
+    </p>
+    <div class="terms-grid">
+      <div class="t-card">
+        <div class="t-lbl">Delivery Basis</div>
+        <div class="t-val">FCA Chebarkulsky Factory</div>
+        <div class="t-note">Продавец передаёт товар перевозчику покупателя на заводе в Чебаркуле. Организация доставки до склада покупателя — по отдельному запросу.</div>
+      </div>
+      <div class="t-card">
+        <div class="t-lbl">Minimum Volume</div>
+        <div class="t-val">30 м³</div>
+        <div class="t-note">Minimum Volume одной партии — 30 м³. Возможна смешанная партия из разных сортов и толщин.</div>
+      </div>
+      <div class="t-card">
+        <div class="t-lbl">Production Lead Time</div>
+        <div class="t-val">Individual</div>
+        <div class="t-note">Depends on volume and order composition. Agreed upon order placement.</div>
+      </div>
+      <div class="t-card">
+        <div class="t-lbl">Payment Terms</div>
+        <div class="t-val">By Agreement</div>
+        <div class="t-note">Prepayment or letter of credit. Terms agreed individually upon order placement.</div>
+      </div>
+      <div class="t-card">
+        <div class="t-lbl">Documents</div>
+        <div class="t-val">Full Package</div>
+        <div class="t-note">ISO 9001, ГОСТ 3916.1-2018, декларации соответствия, фитосанитарные документы для экспорта.</div>
+      </div>
+      <div class="t-card">
+        <div class="t-lbl">Volume Discounts</div>
+        <div class="t-val">Individual</div>
+        <div class="t-note">Volume discounts are agreed upon order placement. Request terms for your volume.</div>
+      </div>
+    </div>
+
+    <div class="logistics">
+      <div>
+        <div class="log-title">Logistics Options from Chebarkulsky</div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">FCA Chebarkulsky Factory — базовый вариант, минимальная цена</span></div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">Transport arrangement to Georgia/destination — on request, cost calculated separately</span></div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">Customs clearance — buyer's responsibility</span></div>
+      </div>
+      <div>
+        <div class="log-title">Packaging and Marking</div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">Standard packaging — wooden pallets with crating</span></div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">Sheets are interleaved to protect the surface</span></div>
+        <div class="log-row"><span class="log-dot"></span><span class="log-text">Batch marking — grade, thickness, GOST, number of sheets</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-sec">
+  <div>
+    <h2 class="cta-h2">Request Terms for Your Volume</h2>
+    <p class="cta-sub">Specify the grades, thicknesses and volume you need — we will select optimal terms and calculate the batch cost.</p>
+    <a href="https://t.me/iMark_1" class="cta-btn">Request Terms</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-l">© 2026 Chebarkulsky Plywood Mill · uralfan.ru</div>
+  <div class="footer-certs">
+    <span class="cert">ISO 9001</span>
+    <span class="cert">ГОСТ 3916.1-2018</span>
+    <span class="cert">Класс Е-0.5</span>
+  </div>
+</footer>
+
+</body>
+</html>
